@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Krishna Vamsy Gaddam is a data science master's student and data analyst in Berlin, Germany."
+    />
+    <meta name="theme-color" content="#0b0d0c" />
+    <title>Krishna Vamsy Gaddam — Data Analyst &amp; Data Science Student</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#0b0d0c",
+              panel: "#111513",
+              line: "#242a27",
+              muted: "#929b96",
+              accent: "#b8f36b",
+            },
+            fontFamily: {
+              sans: ["Manrope", "sans-serif"],
+              mono: ["DM Mono", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #0b0d0c;
+        --panel: #111513;
+        --line: #242a27;
+        --muted: #929b96;
+        --accent: #b8f36b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(ellipse at 82% 3%, rgb(184 243 107 / 5%), transparent 27rem),
+          var(--ink);
+        color: #f0f3f1;
+        font-family: "Manrope", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--accent);
+        color: var(--ink);
+      }
+
+      a,
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      .mono {
+        font-family: "DM Mono", monospace;
+      }
+
+      .section-kicker {
+        color: var(--accent);
+        font: 500 0.72rem "DM Mono", monospace;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 600;
+        letter-spacing: -0.065em;
+        line-height: 1.08;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: translateY(18px);
+        transition:
+          opacity 650ms ease,
+          transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+
+      .js .reveal {
+        opacity: 0;
+      }
+
+      .js .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .grid-texture {
+        background-image: linear-gradient(rgb(255 255 255 / 2.5%) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(255 255 255 / 2.5%) 1px, transparent 1px);
+        background-size: 46px 46px;
+        mask-image: linear-gradient(to bottom, black, transparent 88%);
+      }
+
+      .outline-text {
+        color: transparent;
+        -webkit-text-stroke: 1px rgb(240 243 241 / 23%);
+      }
+
+      .project-card,
+      .surface-card {
+        border: 1px solid var(--line);
+        background: linear-gradient(145deg, rgb(255 255 255 / 3%), transparent 72%), var(--panel);
+      }
+
+      .project-card {
+        transition: border-color 220ms ease, transform 220ms ease;
+      }
+
+      .project-card:hover {
+        border-color: rgb(184 243 107 / 42%);
+        transform: translateY(-4px);
+      }
+
+      .skill-chip {
+        border: 1px solid #29302c;
+        background: rgb(255 255 255 / 2%);
+      }
+
+      .mobile-menu {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+      }
+
+      .mobile-menu.is-open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .availability-dot {
+        box-shadow: 0 0 0 4px rgb(184 243 107 / 10%);
+      }
+
+      .form-field {
+        border: 1px solid var(--line);
+        background: #0d100e;
+        transition: border-color 180ms ease;
+      }
+
+      .form-field:focus {
+        border-color: rgb(184 243 107 / 70%);
+        outline: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .reveal,
+        .js .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <a
+      class="sr-only z-50 rounded bg-accent px-4 py-2 font-semibold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      href="#main"
+      >Skip to content</a
+    >
+
+    <header class="fixed inset-x-0 top-0 z-40 border-b border-white/[0.06] bg-ink/85 backdrop-blur-xl">
+      <nav
+        class="mx-auto flex h-[76px] max-w-6xl items-center justify-between px-5 sm:px-8"
+        aria-label="Main navigation"
+      >
+        <a href="#home" class="flex items-center gap-3" aria-label="Krishna Vamsy Gaddam, home">
+          <span class="grid size-9 place-items-center rounded-lg border border-accent/30 bg-accent/[0.08] mono text-sm text-accent">KV</span>
+          <span class="text-sm font-bold tracking-tight">Krishna Vamsy<span class="text-muted">.</span></span>
+        </a>
+        <div class="hidden items-center gap-8 md:flex">
+          <a class="text-sm text-muted transition hover:text-white" href="#about">About</a>
+          <a class="text-sm text-muted transition hover:text-white" href="#experience">Experience</a>
+          <a class="text-sm text-muted transition hover:text-white" href="#projects">Projects</a>
+          <a class="text-sm text-muted transition hover:text-white" href="#skills">Skills</a>
+          <a
+            class="rounded-md border border-white/15 px-4 py-2 text-sm font-semibold transition hover:border-accent/60 hover:text-accent"
+            href="#contact"
+            >Let’s talk <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <button
+          id="menu-toggle"
+          class="grid size-10 place-items-center rounded-md border border-white/10 text-white md:hidden"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation menu"
+        >
+          <svg id="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="mobile-menu absolute inset-x-0 top-full border-b border-line bg-ink px-5 pb-5 md:hidden">
+        <div class="mx-auto flex max-w-6xl flex-col">
+          <a class="mobile-link border-b border-line py-3 text-sm text-muted" href="#about">About</a>
+          <a class="mobile-link border-b border-line py-3 text-sm text-muted" href="#experience">Experience</a>
+          <a class="mobile-link border-b border-line py-3 text-sm text-muted" href="#projects">Projects</a>
+          <a class="mobile-link border-b border-line py-3 text-sm text-muted" href="#skills">Skills</a>
+          <a class="mobile-link py-3 text-sm text-accent" href="#contact">Let’s talk ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="home" class="relative isolate flex min-h-[760px] items-center overflow-hidden pt-24 sm:min-h-[820px]">
+        <div class="grid-texture absolute inset-0 -z-10 opacity-60" aria-hidden="true"></div>
+        <div class="absolute -right-36 top-36 -z-10 size-[30rem] rounded-full bg-accent/[0.045] blur-[110px]" aria-hidden="true"></div>
+        <div class="mx-auto grid w-full max-w-6xl gap-12 px-5 pb-20 pt-16 sm:px-8 lg:grid-cols-[1fr_290px] lg:items-center lg:gap-16 lg:pb-28">
+          <div class="reveal">
+            <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-line bg-white/[0.025] px-4 py-2">
+              <span class="availability-dot size-2 rounded-full bg-accent"></span>
+              <span class="mono text-[0.68rem] tracking-wide text-muted">OPEN TO WORKING STUDENT ROLES · BERLIN</span>
+            </div>
+            <p class="section-kicker mb-5">Data analyst · Machine learning enthusiast</p>
+            <h1 class="max-w-4xl text-[clamp(3.2rem,8vw,6.6rem)] font-semibold leading-[0.99] tracking-[-0.075em]">
+              Krishna Vamsy<br />
+              <span class="text-accent">Gaddam<span class="text-white">.</span></span>
+            </h1>
+            <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
+              Master’s Student in Data Science, AI &amp; Digital Business
+              <span class="text-muted">|</span> Data Analyst
+            </p>
+            <p class="mt-4 max-w-xl text-[0.97rem] leading-7 text-muted">
+              Translating complex quantitative metrics into executive-level visual reports, data pipelines, and machine learning solutions.
+            </p>
+            <div class="mt-9 flex flex-wrap items-center gap-3">
+              <a
+                href="#projects"
+                class="inline-flex items-center gap-3 rounded-md bg-accent px-5 py-3 text-sm font-bold text-ink transition hover:bg-[#cbff8e]"
+                >View Projects <span aria-hidden="true">↘</span></a
+              >
+              <a
+                href="assets/Krishna_Vamsy_Gaddam_Resume.pdf"
+                download
+                class="inline-flex items-center gap-3 rounded-md border border-white/15 px-5 py-3 text-sm font-semibold transition hover:border-white/35"
+                >Download Resume <span aria-hidden="true">↓</span></a
+              >
+            </div>
+            <div class="mt-9 flex items-center gap-5">
+              <a
+                class="inline-flex items-center gap-2 text-sm text-muted transition hover:text-accent"
+                href="https://www.linkedin.com/in/krishna-vamsy-gaddam-157ab02a8"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn profile"
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V8.99h3.56v11.46ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.44c.98 0 1.79-.77 1.79-1.73V1.73C24 .77 23.19 0 22.21 0h.01Z"/></svg>
+                LinkedIn
+              </a>
+              <span class="h-4 w-px bg-line" aria-hidden="true"></span>
+              <a
+                class="inline-flex items-center gap-2 text-sm text-muted transition hover:text-accent"
+                href="https://github.com/Krishna-Vamsy"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub profile (replace with your profile URL)"
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.31-3.76-1.31-.51-1.3-1.24-1.65-1.24-1.65-1.01-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.2 3.26.92.1-.73.39-1.2.7-1.47-2.48-.28-5.09-1.24-5.09-5.53 0-1.22.43-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.62 10.62 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.3-2.61 5.24-5.1 5.52.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
+                GitHub
+              </a>
+              <span class="ml-auto hidden items-center gap-2 text-sm text-muted sm:inline-flex">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 10c0 5-7 12-7 12S5 15 5 10a7 7 0 1 1 14 0Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+                Berlin, Germany
+              </span>
+            </div>
+          </div>
+          <aside class="reveal hidden lg:block" aria-label="Profile highlights">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-xl border border-line bg-panel p-6">
+              <div class="absolute inset-0 grid-texture opacity-60" aria-hidden="true"></div>
+              <div class="relative flex h-full flex-col justify-between">
+                <div class="flex items-center justify-between">
+                  <span class="section-kicker">PROFILE / 01</span>
+                  <span class="mono text-xs text-muted">52°31' N</span>
+                </div>
+                <div class="relative mx-auto grid size-40 place-items-center rounded-full border border-accent/20">
+                  <div class="absolute inset-3 rounded-full border border-white/[0.08]"></div>
+                  <img
+                    class="size-28 rounded-full object-cover"
+                    src="assets/Profile.jpeg"
+                    alt="Krishna Vamsy Gaddam"
+                    width="112"
+                    height="112"
+                  />
+                  <span class="absolute right-2 top-7 size-2 rounded-full bg-accent shadow-[0_0_16px_4px_rgba(184,243,107,.35)]"></span>
+                </div>
+                <div>
+                  <p class="text-2xl font-semibold tracking-tight">Curious by data.<br /><span class="text-muted">Driven by impact.</span></p>
+                  <div class="mt-5 flex items-center justify-between border-t border-line pt-4">
+                    <span class="mono text-xs text-muted">DS · BI · ML</span>
+                    <span class="mono text-xs text-accent">AVAILABLE →</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-[0.65rem] uppercase tracking-[0.2em] text-muted sm:flex">
+          <span class="h-px w-8 bg-line"></span> Scroll to explore <span class="h-px w-8 bg-line"></span>
+        </div>
+      </section>
+
+      <section id="about" class="border-t border-line/80 py-24 sm:py-32">
+        <div class="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
+          <div class="reveal">
+            <p class="section-kicker mb-5">01 / About</p>
+            <h2 class="section-title">Turning data<br />into <span class="text-accent">direction.</span></h2>
+          </div>
+          <div class="reveal">
+            <p class="text-lg leading-8 text-white/80">
+              I’m an analytical Master’s student at GISMA University of Applied Sciences, combining a strong foundation in data science with hands-on experience across data pipeline engineering, business intelligence, and machine learning.
+            </p>
+            <p class="mt-5 leading-7 text-muted">
+              From transforming messy datasets into trusted insights to building dashboards that help teams make confident decisions, I enjoy making complex information useful. I work with Python, SQL, Power BI, and data visualization tools—and I’m eligible to work in Germany as a student for up to 20 hours per week.
+            </p>
+            <p class="mt-4 text-sm text-muted"><span class="text-white/70">Languages:</span> English (C1) · German (A1)</p>
+            <div class="mt-9 grid gap-3 sm:grid-cols-3">
+              <div class="surface-card rounded-lg p-4">
+                <p class="mono text-2xl text-accent">35 GB</p>
+                <p class="mt-2 text-xs leading-5 text-muted">Data ingested &amp; transformed</p>
+              </div>
+              <div class="surface-card rounded-lg p-4">
+                <p class="mono text-2xl text-accent">97.36%</p>
+                <p class="mt-2 text-xs leading-5 text-muted">Model validation accuracy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="border-t border-line/80 py-24 sm:py-32">
+        <div class="mx-auto max-w-6xl px-5 sm:px-8">
+          <div class="reveal mb-14 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p class="section-kicker mb-5">02 / Experience</p>
+              <h2 class="section-title">Where I’ve <span class="text-accent">made an impact.</span></h2>
+            </div>
+            <p class="mono text-xs text-muted">2024 — 2025</p>
+          </div>
+          <div class="space-y-5">
+            <article class="surface-card reveal grid gap-6 rounded-xl p-6 sm:p-8 lg:grid-cols-[190px_1fr] lg:gap-10">
+              <div>
+                <p class="mono text-sm text-accent">MAY — SEP 2025</p>
+                <p class="mt-2 text-sm text-muted">Hyderabad, India</p>
+              </div>
+              <div>
+                <div class="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h3 class="text-xl font-semibold tracking-tight">Junior Data Analyst <span class="text-muted">(Intern)</span></h3>
+                    <p class="mt-1 text-sm text-muted">Viritus Technologies Pvt Ltd</p>
+                  </div>
+                  <span class="rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1 mono text-[0.65rem] text-accent">DATA · BI</span>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm leading-6 text-muted">
+                  <li class="flex gap-3"><span class="mt-[0.65rem] size-1 shrink-0 rounded-full bg-accent"></span><span>Ingested and transformed <strong class="font-semibold text-white/85">35 GB of unstructured data</strong> with Python and SQL, supporting analysis associated with a 7% increase in profit.</span></li>
+                  <li class="flex gap-3"><span class="mt-[0.65rem] size-1 shrink-0 rounded-full bg-accent"></span><span>Built dynamic Power BI dashboards integrating <strong class="font-semibold text-white/85">5 GB of performance data</strong> to monitor product usage trends and profit realization.</span></li>
+                  <li class="flex gap-3"><span class="mt-[0.65rem] size-1 shrink-0 rounded-full bg-accent"></span><span>Executed data auditing and validation pipelines across multiple data streams, improving data quality and consistency by <strong class="font-semibold text-white/85">12%</strong>.</span></li>
+                  <li class="flex gap-3"><span class="mt-[0.65rem] size-1 shrink-0 rounded-full bg-accent"></span><span>Designed interactive visualizations with MS Excel and Flourish to present strategic growth recommendations to executive stakeholders.</span></li>
+                </ul>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Python</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">SQL</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Power BI</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Excel</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Flourish</span>
+                </div>
+              </div>
+            </article>
+            <article class="surface-card reveal grid gap-6 rounded-xl p-6 sm:p-8 lg:grid-cols-[190px_1fr] lg:gap-10">
+              <div>
+                <p class="mono text-sm text-accent">JUN — SEP 2024</p>
+                <p class="mt-2 text-sm text-muted">Hyderabad, India</p>
+              </div>
+              <div>
+                <div class="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h3 class="text-xl font-semibold tracking-tight">Machine Learning Intern</h3>
+                    <p class="mt-1 text-sm text-muted">Cantilever Labs</p>
+                  </div>
+                  <span class="rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1 mono text-[0.65rem] text-accent">ML · COMPUTER VISION</span>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm leading-6 text-muted">
+                  <li class="flex gap-3"><span class="mt-[0.65rem] size-1 shrink-0 rounded-full bg-accent"></span><span>Developed a real-time face anti-spoofing pipeline using Python, PyTorch, and OpenCV.</span></li>
+                  <li class="flex gap-3"><span class="mt-[0.65rem] size-1 shrink-0 rounded-full bg-accent"></span><span>Engineered the LightFASNet CNN architecture, achieving <strong class="font-semibold text-white/85">97.36% validation accuracy</strong>.</span></li>
+                  <li class="flex gap-3"><span class="mt-[0.65rem] size-1 shrink-0 rounded-full bg-accent"></span><span>Implemented sliding-window video analysis to mitigate prediction flickering and stabilize real-time results.</span></li>
+                </ul>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Python</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">PyTorch</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">OpenCV</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">CNN</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="border-t border-line/80 py-24 sm:py-32">
+        <div class="mx-auto max-w-6xl px-5 sm:px-8">
+          <div class="reveal mb-14 flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p class="section-kicker mb-5">03 / Selected work</p>
+              <h2 class="section-title">Curiosity, <span class="text-accent">put to work.</span></h2>
+            </div>
+            <p class="max-w-xs text-sm leading-6 text-muted">A few ways I turn raw data into clearer decisions and useful outcomes.</p>
+          </div>
+          <div class="grid gap-5 lg:grid-cols-2">
+            <article class="project-card reveal flex min-h-[355px] flex-col rounded-xl p-6 sm:p-8">
+              <div class="mb-9 flex items-center justify-between">
+                <span class="grid size-12 place-items-center rounded-lg border border-accent/20 bg-accent/[0.06] text-accent" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 15v-4m4 4V7m4 8v-6m4 6V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <a class="mono text-xs text-muted transition hover:text-accent" href="https://github.com/Krishna-Vamsy/Olist-Ecommerce-Marketplace-Analysis" target="_blank" rel="noreferrer" aria-label="View Olist E-Commerce project on GitHub">GITHUB ↗</a>
+              </div>
+              <p class="section-kicker mb-3">SQL · E-COMMERCE · INSIGHTS</p>
+              <h3 class="text-2xl font-semibold tracking-tight">Olist E-Commerce<br />Data Analysis &amp; Insights</h3>
+              <p class="mt-4 max-w-lg text-sm leading-6 text-muted">Queried multi-table relational data with SQL joins, CTEs, and aggregations to evaluate sales and customer-retention patterns. Identified revenue drivers across high-volume categories and payment channels to inform inventory strategy, then used Pandas for data wrangling and exploratory analysis for executive reporting.</p>
+              <div class="mt-auto flex flex-wrap gap-2 pt-7">
+                <span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">SQL</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">MySQL</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Python</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Pandas</span>
+              </div>
+            </article>
+            <article class="project-card reveal flex min-h-[355px] flex-col rounded-xl p-6 sm:p-8">
+              <div class="mb-9 flex items-center justify-between">
+                <span class="grid size-12 place-items-center rounded-lg border border-accent/20 bg-accent/[0.06] text-accent" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 19.5h18M5.5 16l4-5 3 2 5-7 2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17.5" cy="6" r="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <a class="mono text-xs text-muted transition hover:text-accent" href="https://github.com/Krishna-Vamsy/Tech-Layoffs-AI-Automation-Analysis" target="_blank" rel="noreferrer" aria-label="View Tech Layoffs and AI Automation Analysis project on GitHub">GITHUB ↗</a>
+              </div>
+              <p class="section-kicker mb-3">PYTHON · LABOR MARKET · AI</p>
+              <h3 class="text-2xl font-semibold tracking-tight">Tech Layoffs &amp;<br />AI Automation Analysis</h3>
+              <p class="mt-4 max-w-lg text-sm leading-6 text-muted">Analyzed 1,850 global layoff events from 2020–2026, finding AI-related restructuring rose from 11% to 38% of job cuts. Compared one-week stock reactions (2.5% median for AI layoffs vs. −1.9% for other restructurings), consolidated 49 overlapping categories, and visualized trends and departmental impacts.</p>
+              <div class="mt-auto flex flex-wrap gap-2 pt-7">
+                <span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Python</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Pandas</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Matplotlib</span><span class="skill-chip rounded px-2.5 py-1 mono text-[0.65rem] text-muted">Seaborn</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="border-t border-line/80 py-24 sm:py-32">
+        <div class="mx-auto max-w-6xl px-5 sm:px-8">
+          <div class="reveal mb-14">
+            <p class="section-kicker mb-5">04 / Toolkit</p>
+            <h2 class="section-title">Tools for the <span class="text-accent">whole data journey.</span></h2>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="surface-card reveal rounded-xl p-6">
+              <div class="mb-5 flex items-center gap-3"><span class="mono text-sm text-accent">01</span><h3 class="font-semibold">Programming languages</h3></div>
+              <div class="flex flex-wrap gap-2"><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Python</span></div>
+            </article>
+            <article class="surface-card reveal rounded-xl p-6">
+              <div class="mb-5 flex items-center gap-3"><span class="mono text-sm text-accent">02</span><h3 class="font-semibold">Software engineering</h3></div>
+              <div class="flex flex-wrap gap-2"><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Object-oriented programming</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">SDLC</span></div>
+            </article>
+            <article class="surface-card reveal rounded-xl p-6">
+              <div class="mb-5 flex items-center gap-3"><span class="mono text-sm text-accent">03</span><h3 class="font-semibold">BI &amp; automation</h3></div>
+              <div class="flex flex-wrap gap-2"><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Microsoft Power BI</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Power Query</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">MS Excel</span></div>
+            </article>
+            <article class="surface-card reveal rounded-xl p-6">
+              <div class="mb-5 flex items-center gap-3"><span class="mono text-sm text-accent">04</span><h3 class="font-semibold">Database systems</h3></div>
+              <div class="flex flex-wrap gap-2"><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">SQL · MySQL</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">ER modeling</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Data modeling</span></div>
+            </article>
+            <article class="surface-card reveal rounded-xl p-6">
+              <div class="mb-5 flex items-center gap-3"><span class="mono text-sm text-accent">05</span><h3 class="font-semibold">Data &amp; analytics</h3></div>
+              <div class="flex flex-wrap gap-2"><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Pandas</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">NumPy</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">EDA</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Data cleaning</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Data visualization</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Matplotlib</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Seaborn</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Reporting</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Descriptive statistics</span></div>
+            </article>
+            <article class="surface-card reveal rounded-xl p-6">
+              <div class="mb-5 flex items-center gap-3"><span class="mono text-sm text-accent">06</span><h3 class="font-semibold">Tools &amp; platforms</h3></div>
+              <div class="flex flex-wrap gap-2"><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Git</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Jupyter Notebook</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">VS Code</span><span class="skill-chip rounded-md px-3 py-2 text-sm text-white/80">Microsoft Office</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="border-t border-line/80 py-24 sm:py-32">
+        <div class="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_0.85fr] lg:gap-20">
+          <div>
+            <div class="reveal mb-10">
+              <p class="section-kicker mb-5">05 / Education</p>
+              <h2 class="section-title">Learning with <span class="text-accent">purpose.</span></h2>
+            </div>
+            <div class="space-y-4">
+              <article class="surface-card reveal rounded-xl p-6">
+                <div class="flex flex-wrap justify-between gap-3">
+                  <span class="mono text-xs text-accent">2025 — PRESENT</span>
+                  <span class="mono text-xs text-muted">GERMANY</span>
+                </div>
+                <h3 class="mt-4 text-lg font-semibold">Master of Science</h3>
+                <p class="mt-1 text-sm text-white/80">Data Science, AI and Digital Business</p>
+                <p class="mt-1 text-sm text-muted">GISMA University of Applied Sciences</p>
+                <p class="mt-4 border-t border-line pt-4 text-xs leading-6 text-muted"><span class="text-white/70">Coursework:</span> Statistics, Applied Algorithms, Data Mining, Applied ML, NLP, Computer Vision</p>
+              </article>
+              <article class="surface-card reveal rounded-xl p-6">
+                <div class="flex flex-wrap justify-between gap-3">
+                  <span class="mono text-xs text-accent">2022 — 2025</span>
+                  <span class="mono text-xs text-muted">INDIA</span>
+                </div>
+                <h3 class="mt-4 text-lg font-semibold">Bachelor of Computer Applications</h3>
+                <p class="mt-1 text-sm text-muted">KLH University</p>
+                <p class="mt-4 border-t border-line pt-4 text-xs text-muted">GPA <span class="mono text-white/85">8.59 / 10</span></p>
+              </article>
+            </div>
+          </div>
+          <aside class="reveal">
+            <p class="section-kicker mb-5">Beyond the classroom</p>
+            <h2 class="section-title text-3xl">Leadership &amp;<br /><span class="text-accent">recognition.</span></h2>
+            <div class="mt-8 border-l border-accent/30 pl-6">
+              <div class="relative pb-8">
+                <span class="absolute -left-[1.68rem] top-1 size-2 rounded-full bg-accent"></span>
+                <p class="mono text-xs text-muted">2024 — 2025</p>
+                <h3 class="mt-2 font-semibold">Club President</h3>
+                <p class="mt-1 text-sm text-muted">KLH University Student Association · Managed event budgets, public relations, and cross-departmental operations</p>
+              </div>
+              <div class="relative pb-8">
+                <span class="absolute -left-[1.68rem] top-1 size-2 rounded-full bg-accent"></span>
+                <p class="mono text-xs text-muted">2023 &amp; 2024</p>
+                <h3 class="mt-2 font-semibold">Best Coordinator of the Year</h3>
+                <p class="mt-1 text-sm text-muted">Recognized for commitment, operational support, and student activity execution</p>
+              </div>
+              <div class="relative pb-8">
+                <span class="absolute -left-[1.68rem] top-1 size-2 rounded-full bg-accent"></span>
+                <p class="mono text-xs text-muted">EVENT LEADERSHIP</p>
+                <h3 class="mt-2 font-semibold">Event Operations Lead</h3>
+                <p class="mt-1 text-sm text-muted">Managed logistics, scheduling, and volunteers for university events serving 500+ attendees</p>
+              </div>
+              <div class="relative">
+                <span class="absolute -left-[1.68rem] top-1 size-2 rounded-full bg-accent"></span>
+                <p class="mono text-xs text-muted">ACADEMIC ACHIEVEMENT</p>
+                <h3 class="mt-2 font-semibold">Technical Paper Presentation</h3>
+                <p class="mt-1 text-sm text-muted">2nd Prize, National Level Technical Symposium · LightFASNet real-time anti-spoofing architecture</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="contact" class="border-t border-line/80 py-24 sm:py-32">
+        <div class="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-20">
+          <div class="reveal">
+            <p class="section-kicker mb-5">06 / Contact</p>
+            <h2 class="section-title">Have a good<br /><span class="text-accent">data question?</span></h2>
+            <p class="mt-5 max-w-md text-sm leading-7 text-muted">I’m available for Data Analysis working student opportunities in Germany. If you’re building something thoughtful with data, I’d love to hear from you.</p>
+          </div>
+          <div class="surface-card reveal rounded-xl p-6 sm:p-8">
+            <p class="section-kicker mb-6">Get in touch</p>
+            <div class="mt-9 space-y-4">
+              <a class="flex items-center gap-3 text-sm text-white/80 transition hover:text-accent" href="mailto:gaddamvamsy@gmail.com">
+                <span class="grid size-9 place-items-center rounded-md border border-line text-accent" aria-hidden="true">✉</span>
+                gaddamvamsy@gmail.com
+              </a>
+              <a class="flex items-center gap-3 text-sm text-white/80 transition hover:text-accent" href="https://www.linkedin.com/in/krishna-vamsy-gaddam-157ab02a8" target="_blank" rel="noreferrer">
+                <span class="grid size-9 place-items-center rounded-md border border-line text-accent" aria-hidden="true">in</span>
+                LinkedIn <span class="text-muted">↗</span>
+              </a>
+              <a class="flex items-center gap-3 text-sm text-white/80 transition hover:text-accent" href="https://github.com/Krishna-Vamsy" target="_blank" rel="noreferrer">
+                <span class="grid size-9 place-items-center rounded-md border border-line text-accent" aria-hidden="true">⌘</span>
+                GitHub <span class="text-muted">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-line/80">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-7 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <a href="#home" class="font-semibold tracking-tight text-white/80">Krishna Vamsy Gaddam<span class="text-accent">.</span></a>
+        <p>Designed with intention <span class="text-accent">·</span> Berlin, Germany</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector("#menu-toggle");
+      const mobileMenu = document.querySelector("#mobile-menu");
+      const menuIcon = document.querySelector("#menu-icon");
+
+      function setMenuOpen(isOpen) {
+        mobileMenu.classList.toggle("is-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        menuIcon.innerHTML = isOpen
+          ? '<path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>'
+          : '<path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>';
+      }
+
+      menuToggle.addEventListener("click", () => {
+        setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+      });
+
+      mobileMenu.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => setMenuOpen(false));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+          setMenuOpen(false);
+          menuToggle.focus();
+        }
+      });
+
+      const revealElements = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        revealElements.forEach((element) => revealObserver.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add("is-visible"));
+      }
+
+    </script>
+  </body>
+</html>
